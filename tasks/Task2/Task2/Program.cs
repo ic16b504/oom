@@ -6,35 +6,18 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    public class Auto
+    class Program
     {
-        private decimal a_price;
-
-        public string Typ { get; }
-        public string Colour { get; }
-      
-        public Auto(string typ, string colour, decimal price)
-        {
-            if (string.IsNullOrWhiteSpace(typ)) throw new ArgumentException("Typ darf nicht leer sein.", nameof(typ));
-            if (string.IsNullOrWhiteSpace(colour)) throw new ArgumentException("Colour darf nicht leer sein.", nameof(colour));
-
-            Typ = typ;
-            Colour = colour;
-            UpdatePrice(price);
-        }
-
-        public void UpdatePrice(decimal newprice)
-        {
-            if (newprice < 0) throw new ArgumentException("Der Preis darf nicht negativ sein.", nameof(newprice));
-            a_price = newprice;
-        }
-
         static void Main(string[] args)
         {
-            Auto auto = new Auto("Ford Shelby GT500", "Weiß", 100000);
-            auto.a_price = -100000;
+            var a = new Auto("Aston Martin", "Schwarz", 200000);
+            var b = new Auto("Ford", "Weiß", 30500);
+            var c = new Auto("VW", "Blau", 45000);
 
-            Console.WriteLine($"Auto Preis:"+auto.a_price);
+            Console.WriteLine();
+            Console.WriteLine(a.Type, a.Colour, a.GetPrice());
+            Console.WriteLine(b.Type, b.Colour, b.GetPrice());
+            Console.WriteLine(c.Type, c.Colour, c.GetPrice());
         }
     }
 }
