@@ -10,14 +10,15 @@ namespace Task2
     {
         static void Main(string[] args)
         {
-            var a = new Auto("Aston Martin", "Schwarz", 200000);
-            var b = new Auto("Ford", "Weiß", 30500);
-            var c = new Auto("VW", "Blau", 45000);
+            var a = new MagicCard("Garruk Wildspeaker", "Lorwyn", 8.50);
+            var b = new MagicCard("Loxodon Warhammer", "Mirrodin", 1.00);
+            var c = new MagicCard("Knight Exemplar", "2011 Core Set", 4.00);
 
-            Console.WriteLine();
-            Console.WriteLine(a.Type, a.Colour, a.GetPrice());
-            Console.WriteLine(b.Type, b.Colour, b.GetPrice());
-            Console.WriteLine(c.Type, c.Colour, c.GetPrice());
+            Console.WriteLine("Magic Cards:");
+            Console.WriteLine($"{a.Name}, Edition: {a.Edition}, Preis: {a.Price} Euro");
+            Console.WriteLine($"{b.Name}, Edition: {b.Edition}, Preis: {b.Price} Euro");
+            Console.WriteLine($"{c.Name}, Edition: {c.Edition}, Preis: {c.Price} Euro");
+            Console.ReadKey();
         }
     }
 }

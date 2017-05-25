@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{849EFAE7-614B-4B4A-8F9A-16BE8B0B903B}</ProjectGuid>
+    <ProjectGuid>{B561A1FC-BC6A-4947-9EB1-26577C0F5EA7}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Task3</RootNamespace>
     <AssemblyName>Task3</AssemblyName>
@@ -42,10 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Auto.cs" />
-    <Compile Include="Currency.cs" />
-    <Compile Include="GiftCard.cs" />
-    <Compile Include="Items.cs" />
+    <Compile Include="IMagicCard.cs" />
+    <Compile Include="MagicCard.cs" />
+    <Compile Include="MagicProdukte.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
