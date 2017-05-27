@@ -1,27 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿
+using System;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace Task4
 {
     class Serialization
     {
-
-        public static void Run(Items[] itmes)
+        public static void Run(IMagic[] magic)
         {
-            var auto = itmes[0];
+            var m = magic[0];
 
-            File.WriteAllText(@"c:\itmes.json", JsonConvert.SerializeObject(auto));
+            Console.WriteLine(JsonConvert.SerializeObject(m));
 
-            using (StreamWriter file = File.CreateText(@"c:\itmes.json"))
-            {
-                JsonSerializer serial = new JsonSerializer();
-                serial.Serialize(file, auto);
-            }
+            var sm = new JsonSerializerSettings() { Formatting = Formatting.Indented, TypeNameHandling = TypeNameHandling.Auto };
+            Console.WriteLine(JsonConvert.SerializeObject(magic, sm));
+            var mt = JsonConvert.SerializeObject(magic, sm);
+
+            var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            var file = Path.Combine(desktop, "magic.json");
+            File.WriteAllText(file, mt);
+
+            var magicfile = File.ReadAllText(file);
+            var imagicfile = JsonConvert.DeserializeObject<IMagic[]>(magicfile, sm);
+            foreach (var mm in imagicfile) Console.WriteLine($"{mm.Name}, {mm.Edition}, {mm.Price} Euro");
         }
     }
 }

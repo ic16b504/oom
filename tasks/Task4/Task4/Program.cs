@@ -1,28 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using System;
 
 namespace Task4
 {
     class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            var items = new Items[]
+            var magiccard = new IMagic[]
             {
-                    new Auto("Aston Martin", "", 400, Currency.EUR),
-                    new Auto("Ford", "", 200, Currency.EUR),
-                    new Auto("VW", "", 300, Currency.EUR),
+                new MagicCard("Garruk Wildspeaker" ,"Lorwyn" ,8.5),
+                new MagicCard("Loxodon Warhammer" ,"Mirrodin" ,1.00),
+                new MagicCard("Knight Exemplar" ,"2011 Core Set" ,4.00),
+
+                new MagicProdukte("Display", "Return to Ravnica Boosterdisplay" ,119.99),
+                new MagicProdukte("Deck", "Amonkhet Planeswalker Deck" ,11.99),
             };
 
-            var currency = Currency.EUR;
-            foreach (var i in items)
+            foreach (var mc in magiccard)
             {
-                Console.WriteLine($"{i.Description} {i.GetPrice(currency)} {currency}");
+                Console.WriteLine("");
+                Console.WriteLine($"{mc.Name}, {mc.Edition}, {mc.Price} Euro");
+                Console.ReadKey();
             }
-            Serialization.Run(items);
+
+            Serialization.Run(magiccard);
+            Console.ReadKey();
         }
     }
 }

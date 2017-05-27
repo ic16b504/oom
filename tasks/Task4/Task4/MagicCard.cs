@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using System;
+using Newtonsoft.Json;
 
-namespace Task3
+namespace Task4
 {
-    class MagicCard : IMagicCard
+    class MagicCard : IMagic
     {
         private double m_price;
+
+        [JsonConstructor]
         public MagicCard(string name, string edition, double price)
         {
             if (name == null || name.Length == 0) throw new ArgumentException("Name fehlt");
@@ -19,7 +19,7 @@ namespace Task3
             Edition = edition;
             Price = price;
         }
-        #region IMagicCard implementation
+        #region IMagic implementation
         public string Name { get; }
         public string Edition { get; }
         public double Price
@@ -27,7 +27,9 @@ namespace Task3
             get { return m_price; }
             set { m_price = value; }
         }
+        [JsonIgnore]
         public string Kategorie => Name;
+        [JsonIgnore]
         public string Produkt => Edition;
         public void UpdatePrice(double newPrice)
         {
